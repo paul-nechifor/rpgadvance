@@ -1,0 +1,90 @@
+/*
+
+Style name: BA Chess
+Author: An RPG Advance
+Site: http://rpgadvance.noads.info/
+Email: rpg.advancement@gmail.com
+Started: don't remember
+Finnished: 2006-09-01 21:40 ......................
+
+Copyright (C) 2006 An RPG Advance. You may NOT use this for anything. If you want something ask me.
+
+*/
+
+/*--------------------[ MENU ]--------------------*/
+div#menu          { position:absolute; width:130px; height:40px; margin:0; top:289px; left:145px; }
+div#link_list     { text-indent:-9999px; /*display:block; width:130px; height:40px;*/ }
+/*div#link_list:hover { background-image:url(menu_title_on.gif); }*/
+div#menu ul       { position:absolute; left:-15px; top:-190px; display:none; margin:0; padding:0; width:120px; height:190px; }
+div#menu ul li    { list-style: none; margin:0; padding:0; width:160px;}
+div#menu:hover ul { display: block; }
+div#menu a span.hide { display:none; }
+div#menu a        { display:block; height:23px; width:160px; color:#DDD; }
+div#menu a#main   { height:37px; }
+div#menu a#links  { height:38px; }
+
+/*--------------------[ MENU LINKS ]--------------------*/		
+div#menu a#main     { background:url(menu_off.png) no-repeat 0px 0px; }
+div#menu a#about_me { background:url(menu_off.png) no-repeat 0px -37px; }
+div#menu a#blog     { background:url(menu_off.png) no-repeat 0px -60px; }
+div#menu a#contact  { background:url(menu_off.png) no-repeat 0px -83px; }
+div#menu a#sites    { background:url(menu_off.png) no-repeat 0px -106px; }
+div#menu a#images   { background:url(menu_off.png) no-repeat 0px -132px; }
+div#menu a#links    { background:url(menu_off.png) no-repeat 0px -155px; }
+div#menu a#main:hover     { background:url(menu_on.png) no-repeat 0px 0px; }
+div#menu a#about_me:hover { background:url(menu_on.png) no-repeat 0px -37px; }
+div#menu a#blog:hover     { background:url(menu_on.png) no-repeat 0px -60px; }
+div#menu a#contact:hover  { background:url(menu_on.png) no-repeat 0px -83px; }
+div#menu a#sites:hover    { background:url(menu_on.png) no-repeat 0px -106px; }
+div#menu a#images:hover   { background:url(menu_on.png) no-repeat 0px -132px; }
+div#menu a#links:hover    { background:url(menu_on.png) no-repeat 0px -155px; }
+
+
+/*--------------------[ PAGE TITLES ]--------------------*/	
+div#title h2 { height:32px;  margin-top:-245px; text-indent:-9999px; }
+div#title h2#main_title     { background: url(titles/main.png) no-repeat center; }
+div#title h2#about_me_title { background: url(titles/about_me.png) no-repeat center; }
+div#title h2#contact_title  { background: url(titles/contact.png) no-repeat center; }
+div#title h2#sites_title    { background: url(titles/sites.png) no-repeat center; }
+div#title h2#images_title   { background: url(titles/images.png) no-repeat center; }
+div#title h2#links_title    { background: url(titles/links.png) no-repeat center; }
+
+/*--------------------[ CONTENT LINKS ]--------------------*/
+div#content a:link     { color:#666; text-decoration:underline; }
+div#content a:visited  { color:#666; text-decoration:underline; }
+div#content a:active   { color:#666; text-decoration:underline; }
+div#content a:hover    { color:#888; text-decoration:none; }
+
+/*--------------------[ TEXT ]--------------------*/
+div#content p { text-indent:50px; margin:0; line-height:1.5em; font-family:Georgia, "Times New Roman", Times, serif; font-size:15px; color:#444; }
+div#content p.introduction:first-letter { font-size:35px; font-weight:bold; color:#777; }
+div#content h3 { font-family:Garamond, Georgia, "Times New Roman", Times, serif; letter-spacing:3px; font-weight:100; font-size:24px; color:#000; text-align:center; }
+
+
+
+
+/*--------------------[ IMAGES ]--------------------*/
+div.image { padding-top:5px; margin-top:10px; border-top:1px #000 solid; }
+div.image img { clear:both; display:block; margin: 5px auto 5px auto; border:3px #000 solid; padding:1px; }
+div.image span.name { float:left; }
+div.image span.author { float:right; }
+div.image span.author:before { content:"by ";}
+
+/*--------------------[ LISTS ]--------------------*/
+
+div#content ul.list_of_links img { display:block; }
+div#content ul { list-style:circle; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

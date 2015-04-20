@@ -1,0 +1,18 @@
+/*
+Style name: Blood Wire
+Author: An RPG Advance
+Site: http://rpgadvance.noads.info/
+Email: rpg.advancement@gmail.com
+Started: don't remember
+Finnished: 2006-09-01 21:40
+
+Copyright (C) 2006
+*/
+
+body 		{ margin:0px; padding:0px; }
+div#box 	{ position:relative; display:block; margin:0 auto 0 auto; padding:0px; width:775px; }
+div#menu 	{ display:block; position:absolute; left:0px;  top:0px; width:215px; height:100%; }
+div#menu ul { margin:0px; padding:90px 5px 5px 65px; height:100%; }
+div#content { padding:10px 65px 10px 230px; margin:0px; min-height:350px; }
+div#footer 	{ display:block; margin:0 auto 0 auto; width:775px; height:209px; }
+div#header 	{ display:block; margin:0 auto 0 auto; width:775px; height:246px; }

@@ -1,0 +1,150 @@
+<code><font color="#0000BB">&lt;?php
+<br />
+<br /></font><font color="#FF8000">/*******************************************************************************
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INGETIK
+<br />================================================================================
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;Ingetik&nbsp;is&nbsp;a&nbsp;simple&nbsp;language&nbsp;to&nbsp;compress&nbsp;similar&nbsp;looking&nbsp;phrases&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;(C)&nbsp;2006&nbsp;An&nbsp;RPG&nbsp;Advancement
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;as&nbsp;published&nbsp;by
+<br />&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either&nbsp;version&nbsp;2&nbsp;of&nbsp;the&nbsp;License,&nbsp;or
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of
+<br />&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;along
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation,&nbsp;Inc.,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;51&nbsp;Franklin&nbsp;Street,&nbsp;Fifth&nbsp;Floor,&nbsp;Boston,&nbsp;MA&nbsp;02110-1301&nbsp;USA.
+
+<br />
+<br />================================================================================
+<br />
+<br />VERSION&nbsp;PROGRESS:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;0.02:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;added&nbsp;enumeration
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;added
+<br />&nbsp;&nbsp;&nbsp;&nbsp;0.03:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;added
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;added
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />TODO:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;operatorul&nbsp;de&nbsp;legare&nbsp;decizii&nbsp;@fs@
+<br />&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;operatorul&nbsp;de&nbsp;despartire&nbsp;decizii&nbsp;$fs$&nbsp;&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;erorile&nbsp;sa&nbsp;arate&nbsp;unde&nbsp;s-a&nbsp;gresit
+
+<br />
+<br />*******************************************************************************/
+<br />
+<br /></font><font color="#007700">function&nbsp;</font><font color="#0000BB">ingetik</font><font color="#007700">(</font><font color="#0000BB">$text</font><font color="#007700">)
+<br /></font><font color="#FF8000">/*
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Function:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;ingetik&nbsp;(str&nbsp;$text)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Version:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2
+<br />&nbsp;&nbsp;&nbsp;&nbsp;Purpose:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recursive&nbsp;function&nbsp;that&nbsp;analizes&nbsp;the&nbsp;input&nbsp;string&nbsp;and&nbsp;
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;randomly&nbsp;chooses&nbsp;words&nbsp;to&nbsp;be&nbsp;included
+<br />&nbsp;&nbsp;&nbsp;&nbsp;Created:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2006-08-31&nbsp;11:13:00+02:00
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Modified:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2006-08-31&nbsp;21:32:00+02:00&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Author:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rpgadvance&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Maintainer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rpgadvance
+
+<br />
+*/
+<br />
+<br /></font><font color="#007700">{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$raspuns&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#DD0000">''</font><font color="#007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">//&nbsp;stringul&nbsp;care&nbsp;trebuie&nbsp;intors
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuvinte&nbsp;</font><font color="#007700">=&nbsp;array();&nbsp;</font><font color="#FF8000">//&nbsp;cuvintele&nbsp;dintre&nbsp;care&nbsp;trebuie&nbsp;ales
+
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuv&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">0</font><font color="#007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">//&nbsp;indexul&nbsp;cuvantului&nbsp;cu&nbsp;care&nbsp;se&nbsp;lucreaza
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cauta&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">false</font><font color="#007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">//&nbsp;daca&nbsp;se&nbsp;cauta&nbsp;cuvantul&nbsp;curent&nbsp;sau&nbsp;pur&nbsp;si&nbsp;simplu&nbsp;se&nbsp;adauga&nbsp;la&nbsp;raspuns
+
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$paran&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">0</font><font color="#007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#FF8000">//&nbsp;paranteze&nbsp;patrate&nbsp;gasite.&nbsp;pentru&nbsp;'['&nbsp;se&nbsp;incrementeaza,&nbsp;pentru&nbsp;']'&nbsp;se&nbsp;decrementeaza
+<br />&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">for&nbsp;(</font><font color="#0000BB">$i</font><font color="#007700">=</font><font color="#0000BB">0</font><font color="#007700">;&nbsp;</font><font color="#0000BB">$i</font><font color="#007700">&lt;</font><font color="#0000BB">strlen</font><font color="#007700">(</font><font color="#0000BB">$text</font><font color="#007700">);&nbsp;</font><font color="#0000BB">$i</font><font color="#007700">++)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">]&nbsp;==&nbsp;</font><font color="#DD0000">'['</font><font color="#007700">)
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$cauta</font><font color="#007700">)&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$paran</font><font color="#007700">++;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuvinte</font><font color="#007700">[</font><font color="#0000BB">$cuv</font><font color="#007700">]&nbsp;.=&nbsp;</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">];
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;</font><font color="#0000BB">$cauta&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">true</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elseif&nbsp;(</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">]&nbsp;==&nbsp;</font><font color="#DD0000">']'</font><font color="#007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$cauta</font><font color="#007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$paran&nbsp;</font><font color="#007700">&gt;&nbsp;</font><font color="#0000BB">0</font><font color="#007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$paran</font><font color="#007700">--;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuvinte</font><font color="#007700">[</font><font color="#0000BB">$cuv</font><font color="#007700">]&nbsp;.=&nbsp;</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">];
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elseif&nbsp;(</font><font color="#0000BB">$paran&nbsp;</font><font color="#007700">==&nbsp;</font><font color="#0000BB">0</font><font color="#007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$raspuns&nbsp;</font><font color="#007700">.=&nbsp;</font><font color="#0000BB">ingetik</font><font color="#007700">(</font><font color="#0000BB">$cuvinte</font><font color="#007700">[</font><font color="#0000BB">mt_rand</font><font color="#007700">(</font><font color="#0000BB">0</font><font color="#007700">,</font><font color="#0000BB">$cuv</font><font color="#007700">)]);
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cauta&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">false</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuv&nbsp;</font><font color="#007700">=&nbsp;</font><font color="#0000BB">0</font><font color="#007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000BB">$cuvinte&nbsp;</font><font color="#007700">=&nbsp;array();&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;die(</font><font color="#DD0000">'Nu&nbsp;are&nbsp;ce&nbsp;cauta&nbsp;"]"&nbsp;aici'</font><font color="#007700">);
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;die(</font><font color="#DD0000">'Nu&nbsp;are&nbsp;ce&nbsp;cauta&nbsp;"]"&nbsp;aici'</font><font color="#007700">);
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elseif&nbsp;(</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">]&nbsp;==&nbsp;</font><font color="#DD0000">'/'</font><font color="#007700">)
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$cauta</font><font color="#007700">)&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$paran&nbsp;</font><font color="#007700">==&nbsp;</font><font color="#0000BB">0</font><font color="#007700">)&nbsp;</font><font color="#0000BB">$cuv</font><font color="#007700">++;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;</font><font color="#0000BB">$cuvinte</font><font color="#007700">[</font><font color="#0000BB">$cuv</font><font color="#007700">]&nbsp;.=&nbsp;</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">];
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;die(</font><font color="#DD0000">'Nu&nbsp;are&nbsp;ce&nbsp;cauta&nbsp;"/"&nbsp;aici'</font><font color="#007700">);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</font><font color="#FF8000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">else
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</font><font color="#0000BB">$cauta</font><font color="#007700">)&nbsp;</font><font color="#0000BB">$cuvinte</font><font color="#007700">[</font><font color="#0000BB">$cuv</font><font color="#007700">]&nbsp;.=&nbsp;</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">];
+
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;</font><font color="#0000BB">$raspuns&nbsp;</font><font color="#007700">.=&nbsp;</font><font color="#0000BB">$text</font><font color="#007700">[</font><font color="#0000BB">$i</font><font color="#007700">];
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</font><font color="#0000BB">$raspuns</font><font color="#007700">;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />}
+<br /></font><font color="#0000BB">?&gt;</font>
+
+</font>
+</code>
