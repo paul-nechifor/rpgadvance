@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "include/header.php";
 print_header("Name Generator 0.5");
 
@@ -30,8 +30,8 @@ Versiunea 0.5:
 VIITOR:
 	-POSIBLILITATEA DE A ALEGE ALTA FRECVENTA A LITERELOR
 	-o conditie care sa dubleze o litera (ex din Fibonaci in Fibonacci)
-	-sa accepte input variabil 
-*/ 
+	-sa accepte input variabil
+*/
 
 define ('MAX_LITERE', 10);
 define ('MIN_LITERE', 3);

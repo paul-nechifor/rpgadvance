@@ -1,10 +1,10 @@
-<?php 
+<?php
 include "include/header.php";
 print_header("Obfuscated");
 ?>
-<p>This is an intentionally <a href="http://en.wikipedia.org/wiki/Obfuscated_code" title="To make so confused or opaque as to be difficult to perceive or understand">obfuscated code</a> in PHP. If you don&#8217;t know the language then you won&#8217;t get the joke... because it <em>is</em> a joke. Don&#8217;t get offended. I&#8217;d make one in English but I&#8217;m not sure I know that much slang.</p> 
+<p>This is an intentionally <a href="http://en.wikipedia.org/wiki/Obfuscated_code" title="To make so confused or opaque as to be difficult to perceive or understand">obfuscated code</a> in PHP. If you don&#8217;t know the language then you won&#8217;t get the joke... because it <em>is</em> a joke. Don&#8217;t get offended. I&#8217;d make one in English but I&#8217;m not sure I know that much slang.</p>
 
-<p>If you like it tell me what you think about it (see <a href="../contact.php">contact</a>).</p> 
+<p>If you like it tell me what you think about it (see <a href="../contact.php">contact</a>).</p>
 
 <p style="font-family:'Courier New', Courier, monospace">&lt;?php<br />
   function injuetic($cUv){$cuv=0;for($i=0;$i&lt;strlen($cUv);$i++){if($cUv[$i]=='['){<br />
@@ -27,7 +27,7 @@ print_header("Obfuscated");
   &quot;+:&quot;;$vvH = give_size($Hjj,$vvH);$vvH.=&quot;t(mq(cxm(ck}z7o}z.+:=ACe7xzqv(cx}t.+:=&quot;.<br />
   &quot;AC7vi{7}zmkpmee(.+;==Cqm(.qkqzkCv({|wuike6(c7c7c7c7c7000Iv(ZXO(Il~ivkmumv|111&quot;.<br />
   &quot;eeeee&quot;;for($i=0;$i&lt;($gh*($c/2));$i++,$rpgadvance=&quot;made&quot;)echo(fii($vvH,1,1,$y));<br />
-?&gt;</p> 
+?&gt;</p>
 
 <?php
 include "include/footer.php";
